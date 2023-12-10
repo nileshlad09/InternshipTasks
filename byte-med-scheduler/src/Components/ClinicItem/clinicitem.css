@@ -1,0 +1,19 @@
+.clinic-item{
+    width: 380px;
+}
+.clinic-image img{
+    width: 100%;
+    border-radius: 5px;
+}
+.clinic-heading{
+    font-weight: bolder;
+    font-size: 18px;
+    color: rgb(92, 84, 84);
+}
+.clinic-subheading{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: gray;
+    font-weight: 600;
+}

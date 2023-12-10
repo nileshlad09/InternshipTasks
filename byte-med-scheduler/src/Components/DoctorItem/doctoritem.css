@@ -1,0 +1,69 @@
+.doctoritem{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.doc-porfile img{
+    border-radius: 50%;
+    width: 150px;
+}
+.doc-detail{
+    font-size: 14px;
+}
+.doc-name{
+    font-size: 20px;
+    font-weight: 400;
+    color: #199FD9;
+}
+
+.doc-detail p{
+    color: gray;
+
+}
+.doc-detail .address{
+    margin: 10px 0;
+}
+.doc-detail .address p{
+    color: black;
+}
+
+.doc-rating-sec span{
+    background-color: rgb(3, 163, 30);
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: white;
+}
+
+.doc-rating-sec a{
+    padding:0 10px;
+    color: black;
+}
+.bool-appointment-sec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.bool-appointment-sec p{
+    color: rgb(3, 163, 30);
+    font-size: 13px;
+}
+.bool-appointment-sec p i{
+    padding: 5px;
+}
+.bool-appointment-sec button{
+    background-color: #199FD9;
+    border: none;
+    padding: 5px 30px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.bool-appointment-sec button p{
+    color: white;
+    padding-top: 5px;
+    font-size: 11px;
+}

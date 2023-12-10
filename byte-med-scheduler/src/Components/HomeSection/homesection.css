@@ -1,0 +1,20 @@
+.home-section{
+    margin:30px;
+}
+
+.home-section h3{
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.747);
+    margin: 0;
+}
+.home-section>p{
+    font-size: 18px;
+    padding: 10px 0 20px 0;
+    margin: 0;
+}
+.clinicSection{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+

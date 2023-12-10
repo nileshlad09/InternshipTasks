@@ -1,0 +1,9 @@
+.doctor-sec h1{
+    text-align: center;
+}
+.listofDoc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
