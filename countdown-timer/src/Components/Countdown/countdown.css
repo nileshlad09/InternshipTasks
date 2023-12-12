@@ -1,0 +1,35 @@
+.input-min-div{
+    display: flex;
+    flex-direction: column;
+}
+.input-min-div label{
+    font-size: 15px;
+    color: #05accdec;
+}
+.input-min-div input{
+    width: 440px;
+    height: 44px;
+    border-radius: 5px;
+    border: 2px solid #2c3347;
+    outline: none;
+    background-color: transparent;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.countdown-timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 32px;
+    margin-top: 10px;
+    color: #06ABCD;
+    font-weight: bold;
+}
+.countdown-timer i{
+    font-size: 48px;
+}
+.countdown-timer .timer{
+    font-size: 45px;
+}
