@@ -21,6 +21,7 @@ const Countdown = () => {
     var seconds;
     const start = () => {
         setPause(false);
+        settimesup(false);
         seconds = remainingSec ? remainingSec : minutes * 60;
         const intervalID = setInterval(() => {
             let hr = check(Math.floor(seconds / (60 * 60)));
@@ -51,15 +52,19 @@ const Countdown = () => {
         clearInterval(intervalId);
     }
 
-    const reset = () => {
+    const reset = (timechange) => {
         clearInterval(intervalId);
         setSec(0);
+        settimesup(false);
         setPause(true);
-        currentTime();
+        if (timechange == false) {
+            currentTime();
+        }
     }
 
     const onchange = (e) => {
         setMinutes(e.target.value);
+        reset(true);
     }
 
 
@@ -71,23 +76,23 @@ const Countdown = () => {
             </div>
             <div className="countdown-timer">
                 {
-                    isPause ? 
-                    <span className="play-icon">
-                        <i className="fa-solid fa-circle-play" onClick={start}></i>
-                    </span> 
-                    :
+                    isPause ?
+                        <span className="play-icon">
+                            <i className="fa-solid fa-circle-play" onClick={start}></i>
+                        </span>
+                        :
                         <span className="play-icon">
                             <i className="fa-solid fa-circle-pause" onClick={pause}></i>
                         </span>
                 }
                 <span className="play-icon">
-                    <i className="fa-solid fa-rotate-left" onClick={reset}></i>
+                    <i className="fa-solid fa-rotate-left" onClick={() => reset(false)}></i>
                 </span>
 
                 <div className="timer" >{time}</div>
 
             </div>
-            <div className="timesup" style={{display: timesup?"block":"none"}}>
+            <div className="timesup" style={{ display: timesup ? "block" : "none" }}>
                 <p>Time's up {minutes} min</p>
             </div>
         </div>
