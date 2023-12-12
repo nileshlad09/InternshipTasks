@@ -6,7 +6,10 @@ const Countdown = () => {
 
     const [minutes, setMinutes] = useState(0);
     const [time, setTime] = useState("00:00:00");
-    const [intervalId, setIntervalId] = useState(null);//
+    const [remainingSec, setSec] = useState(0);
+    const [intervalId, setIntervalId] = useState(null);
+    const [isPause, setPause] = useState(true);
+    const [timesup, settimesup] = useState(false);
 
     const check = (num1) => {
         if (num1 < 10) {
@@ -15,28 +18,44 @@ const Countdown = () => {
         return num1;
     }
 
+    var seconds;
     const start = () => {
-        let seconds = minutes*60;
+        setPause(false);
+        seconds = remainingSec ? remainingSec : minutes * 60;
         const intervalID = setInterval(() => {
             let hr = check(Math.floor(seconds / (60 * 60)));
             let min = check(Math.floor((seconds % (60 * 60)) / 60));
             let sec = check(Math.floor(seconds % 60));
             setTime(`${hr}:${min}:${sec}`);
-            if(seconds<=0){
+            setSec(seconds);
+            if (seconds <= 0) {
                 clearInterval(intervalID);
+                setPause(true);
+                settimesup(true);
             }
-            seconds=seconds-1;
+            seconds = seconds - 1;
         }, 1000);
         setIntervalId(intervalID)
     }
-    const pause = () => {
-        clearInterval(intervalId);
-        console.log("pause")
+
+    const currentTime = () => {
+        seconds = minutes * 60;
+        let hr = check(Math.floor(seconds / (60 * 60)));
+        let min = check(Math.floor((seconds % (60 * 60)) / 60));
+        let sec = check(Math.floor(seconds % 60));
+        setTime(`${hr}:${min}:${sec}`);
     }
+
+    const pause = () => {
+        setPause(true);
+        clearInterval(intervalId);
+    }
+
     const reset = () => {
         clearInterval(intervalId);
-        start();
-        console.log("reset");
+        setSec(0);
+        setPause(true);
+        currentTime();
     }
 
     const onchange = (e) => {
@@ -51,17 +70,25 @@ const Countdown = () => {
                 <input type="number" name="minutes" id="minutes" value={minutes} onChange={onchange} />
             </div>
             <div className="countdown-timer">
-                <span className="play-icon">
-                    <i className="fa-solid fa-circle-play" onClick={start}></i>
-                </span>
-                <span className="play-icon">
-                    <i className="fa-solid fa-circle-pause" onClick={pause}></i>
-                </span>
+                {
+                    isPause ? 
+                    <span className="play-icon">
+                        <i className="fa-solid fa-circle-play" onClick={start}></i>
+                    </span> 
+                    :
+                        <span className="play-icon">
+                            <i className="fa-solid fa-circle-pause" onClick={pause}></i>
+                        </span>
+                }
                 <span className="play-icon">
                     <i className="fa-solid fa-rotate-left" onClick={reset}></i>
                 </span>
 
                 <div className="timer" >{time}</div>
+
+            </div>
+            <div className="timesup" style={{display: timesup?"block":"none"}}>
+                <p>Time's up {minutes} min</p>
             </div>
         </div>
     )

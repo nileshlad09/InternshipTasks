@@ -33,3 +33,13 @@
 .countdown-timer .timer{
     font-size: 45px;
 }
+
+i{
+    cursor: pointer;
+}
+
+.timesup{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 30px;
+}
